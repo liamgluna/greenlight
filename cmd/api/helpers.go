@@ -53,6 +53,8 @@ func (app *application) readJSON(w http.ResponseWriter, r *http.Request, dst any
 	dec := json.NewDecoder(r.Body)
 	dec.DisallowUnknownFields()
 
+	defer r.Body.Close()
+
 	err := dec.Decode(dst)
 	if err != nil {
 		var syntaxError *json.SyntaxError
