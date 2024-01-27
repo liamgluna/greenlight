@@ -51,6 +51,6 @@ func Unique[T comparable](values []T) bool {
 	for _, value := range values {
 		uniqueValues[value] = true
 	}
-	
+
 	return len(values) == len(uniqueValues)
 }
